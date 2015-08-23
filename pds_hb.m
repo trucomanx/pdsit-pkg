@@ -1,4 +1,4 @@
-function H = pds_hb (P)
+function H = pds_hb(P)
 %
 % H = pds_hb(P)
 %

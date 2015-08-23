@@ -1,0 +1,11 @@
+2015-08-22  Fernando Pujaico Rivera  <fernando.pujaico.rivera@gmail.com>
+
+        * README.md (text): Add text for the homepage.
+        * pds_hb.m (pds_hb): Creating function.
+        * pds_hbinv.m (pds_hbinv): Creating function.
+        * pds_bersbceo.m (pds_bersbceo): Creating function.
+
+2015-08-20  Fernando Pujaico Rivera  <fernando.pujaico.rivera@gmail.com>
+
+        * README.md (text): Init the project.
+

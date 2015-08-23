@@ -1,5 +1,6 @@
 function P = pds_hbinv(H)
-% H = pds_hbinv(P)
+%
+% P = pds_hbinv(H)
 %
 % The function return the inverse of pds_hb(), the inverse P probability of 
 % binary entropy H.
