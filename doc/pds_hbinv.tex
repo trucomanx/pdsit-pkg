@@ -1,0 +1,72 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+%Para \lstset e insertar codigo
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{%
+  frame=tb,
+  language=Octave,%linguagem por defeito
+  %
+  aboveskip=3mm,
+  belowskip=3mm,
+  %backgroundcolor=\color{myverylowgray},
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  %
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  %
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+%opening
+\title{pds\_hbinv.m}
+\author{Fernando Pujaico Rivera}
+
+\begin{document}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+The function pds\_hbinv() represent the inverse function of binary entropy.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The function pds\_hbinv() in the m-file pds\_hbinv.m is defined as:
+\lstset{language=octave}%orden importa
+\begin{lstlisting}
+ P = pds_hbinv(H);
+\end{lstlisting}
+This function represent the formulation of inverse function $h_b^{-1}()$ of binary entropy 
+function $h_b()$; being  $H$ the binary entropy of probability $P$.
+\begin{equation}\label{eq:hbinv}
+ P=h_b^{-1}(H)
+\end{equation}
+
+\begin{equation}\label{eq:hb}
+H=h_b(P)=-P~log_2(P) -(1-P)~log_2(1-P)
+\end{equation}
+This form is showed in \cite{thomas}.
+
+ \begin{thebibliography}{99}
+ 
+\bibitem{thomas}
+Thomas M. Cover and Joy A. Thomas. Elements of Information Theory 2nd Edition. 
+Wiley Series in Telecommunications and Signal Processing. 
+Wiley-Interscience, 2 edition, July 2006.
+
+
+
+ \end{thebibliography} 
+\end{document}

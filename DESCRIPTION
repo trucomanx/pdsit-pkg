@@ -7,4 +7,4 @@ Title: PDS Information Theory Package
 Description: PDSIT is a software package with functions for to work in information theory.
 License: GPLv2+
 Url: http://trucomanx.github.io/pdsit-pkg
-Depends:
+Depends: octave (>= 3.6.1)
