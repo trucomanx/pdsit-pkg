@@ -1,2 +1,2 @@
 # pdsit-pkg
-PDS Information Theory Package
+PDS Information Theory Package .
