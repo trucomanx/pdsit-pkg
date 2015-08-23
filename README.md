@@ -1,2 +1,2 @@
 # pdsit-pkg
-PDS Information Theory Package .
+Digital signal processing and information theory Package.

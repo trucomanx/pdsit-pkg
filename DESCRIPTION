@@ -1,0 +1,10 @@
+Name: PDSIT
+Version: 1.0.0
+Date: 2015-08-20
+Author: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
+Maintainer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
+Title: PDS Information Theory Package
+Description: PDSIT is a package with functions for to work in information theory.
+License: GPLv2+
+Url: 
+Depends:

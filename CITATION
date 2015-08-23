@@ -1,0 +1,18 @@
+To cite PDSIT in publications use:
+
+  Fernando Pujaico (2015).
+  PDSIT - Software for digital signal procesing in Information Theory.
+  URL http://
+
+A BibTeX entry for LaTeX users is:
+
+  @software{PDSIT,
+    author    = {Fernando Pujaico},
+    title     = {{PDSIT} Software for digital signal procesing in Information Theory },
+    year      = {2015},
+    version   = {1.0.0},
+    url       = {}
+  }
+
+We have invested a lot of time and effort in creating PDSIT, please cite it
+when using it.
