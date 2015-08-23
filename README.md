@@ -31,3 +31,7 @@ This package was wrote by @trucomanx.
 Having trouble with package? Check out our 
 [documentation](https://github.com/trucomanx/pdsit-pkg/tree/master/doc) or 
 [contact support](https://github.com/trucomanx).
+
+### Home Page
+[http://trucomanx.github.io/pdsit-pkg](http://trucomanx.github.io/pdsit-pkg).
+
