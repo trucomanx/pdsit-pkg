@@ -1,0 +1,76 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+%Para \lstset e insertar codigo
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{%
+  frame=tb,
+  language=Octave,%linguagem por defeito
+  %
+  aboveskip=3mm,
+  belowskip=3mm,
+  %backgroundcolor=\color{myverylowgray},
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  %
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  %
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+%opening
+\title{pds\_shomega.m}
+\author{Fernando Pujaico Rivera}
+
+\begin{document}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+The function pds\_shomega() represent the formulation of $E = H(\Omega_M)$ 
+in symmetric case of binary CEO problem.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The function pds\_shomega() in the m-file pds\_shomega.m is defined as:
+\lstset{language=octave}%orden importa
+\begin{lstlisting}
+ E = pds_shomega(Ps,M).
+\end{lstlisting}
+This function represent the formulation of $E=H(\Omega_M)$ in symmetric case 
+of binary CEO problem,
+being $\Omega_M=U_1 U_2$ $ ...$ $ U_M$, $Pr(U_0)=0.5$ and $P_s = Pr(U_i \neq U_0|U_0)$.
+\begin{equation}
+ E = -\sum_{k=0}^M \binom{M}{k} Prob(k)log_2( Prob(k) )
+\end{equation}
+
+\begin{equation}
+ Prob(k)=0.5 ( Ps^k (1-Ps)^{M-k} + Ps^{M-k} (1-Ps)^k )
+\end{equation}
+
+
+This equation can be seen in \cite{shomega}.
+
+\begin{thebibliography}{99}
+ 
+\bibitem{shomega}
+Ferrari, G.; Martalo, M.; Abrardo, A.; Raheli, R., "Orthogonal multiple 
+access and information fusion: How many observations are needed?," 
+Information Theory and Applications Workshop (ITA), 2012 , vol., no., 
+pp.311,320, 5-10 Feb. 2012. doi: 10.1109/ITA.2012.6181783
+
+\end{thebibliography}  
+
+\end{document}

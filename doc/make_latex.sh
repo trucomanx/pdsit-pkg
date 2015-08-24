@@ -10,6 +10,9 @@ pdflatex pds_hbinv
 pdflatex pds_shu0omega
 pdflatex pds_shu0omega
 
+pdflatex pds_shomega
+pdflatex pds_shomega
+
 pdflatex pds_bersbceo
 pdflatex pds_bersbceo
 
