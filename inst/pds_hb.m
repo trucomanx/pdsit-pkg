@@ -35,7 +35,7 @@ function H = pds_hb(P)
 %  <http://www.gnu.org/licenses>.
 %
 %  For help, bug reports and feature suggestions, please visit:
-%  http://
+%  http://trucomanx.github.io/pdsit-pkg
 %
 
 	H=zeros(size(P));

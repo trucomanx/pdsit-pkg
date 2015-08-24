@@ -32,7 +32,7 @@ function P = pds_hbinv(H)
 %  <http://www.gnu.org/licenses>.
 %
 %  For help, bug reports and feature suggestions, please visit:
-%  http://
+%  http://trucomanx.github.io/pdsit-pkg
 %
 	P=arrayfun(@hbinvval,H);
 

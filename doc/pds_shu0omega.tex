@@ -1,0 +1,69 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+%Para \lstset e insertar codigo
+\usepackage{listings}
+\usepackage{color}
+
+\lstset{%
+  frame=tb,
+  language=Octave,%linguagem por defeito
+  %
+  aboveskip=3mm,
+  belowskip=3mm,
+  %backgroundcolor=\color{myverylowgray},
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  %
+  numbers=none,
+  numberstyle=\tiny\color{mygray},
+  %
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+%opening
+\title{pds\_shu0omega.m}
+\author{Fernando Pujaico Rivera}
+
+\begin{document}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+The function pds\_shu0omega() represent the formulation of $E = H(U_0|\Omega_M)$ 
+in symmetric case of binary CEO problem.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+The function pds\_shu0omega() in the m-file pds\_shu0omega.m is defined as:
+\lstset{language=octave}%orden importa
+\begin{lstlisting}
+ E = pds_shu0omega(Ps,M).
+\end{lstlisting}
+This function represent the formulation of $E=H(U_0|\Omega_M)$ in symmetric case 
+of binary CEO problem,
+being $\Omega_M=U_1 U_2$ $ ...$ $ U_M$, $Pr(U_0)=0.5$ and $P_s = Pr(U_i \neq U_0|U_0)$.
+\begin{equation}
+ E = \sum_{k=0}^M \binom{M}{k} P_s^k (1-P_s)^{M-k} log_2\left ( 1 +  {\frac{P_s}{(1-P_s)}}^{M-2k} \right )
+\end{equation}
+
+This equation can be seen in the thesis \cite{shu0omega} in the page 49.
+
+\begin{thebibliography}{99}
+ 
+\bibitem{shu0omega}
+  Heshmati, Ashkan   (2007) Data compression and transmission in Wireless Sensor Networks.  
+  Masters thesis, Concordia University. URL http://spectrum.library.concordia.ca/975271/ 
+
+\end{thebibliography}  
+
+\end{document}

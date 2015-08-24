@@ -36,7 +36,7 @@ function BER = pds_bersbceo(Ps,M)
 %      access and information fusion: How many observations are needed?," 
 %      Information Theory and Applications Workshop (ITA), 2012 , vol., no., 
 %      pp.311,320, 5-10 Feb. 2012. doi: 10.1109/ITA.2012.6181783
-
+%
 %
 % Input:
 %  Ps  is the probability of BSC channels, Pr(Ui~=U0|U0)=Ps. Ps can be a value
@@ -66,7 +66,7 @@ function BER = pds_bersbceo(Ps,M)
 %  <http://www.gnu.org/licenses>.
 %
 %  For help, bug reports and feature suggestions, please visit:
-%  http://
+%  http://trucomanx.github.io/pdsit-pkg
 %
 
 	if(~isvector(Ps))
