@@ -54,7 +54,7 @@ function H=pds_shomega(Ps,M)
 %  <http://www.gnu.org/licenses>.
 %
 %  For help, bug reports and feature suggestions, please visit:
-%  http://trucomanx.github.io/pdsit-pkg
+%  http://trucomanx.github.io/pdsit-pkg/
 %
 
 	if(~isvector(Ps))
