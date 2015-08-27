@@ -19,14 +19,14 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome-to-pdsit-package" class="anchor" href="#welcome-to-pdsit-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to PDSIT Package</h3>
+      <h2>
+<a id="welcome-to-pdsit-package" class="anchor" href="#welcome-to-pdsit-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to PDSIT Package</h2>
 
 <p>This package is a set of functions for to work with Digital Signal Processing 
 in Information Theory.</p>
 
-<h3>
-<a id="citations" class="anchor" href="#citations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citations</h3>
+<h2>
+<a id="citations" class="anchor" href="#citations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citations</h2>
 
 <p>To cite PDSIT package in publications, use:</p>
 
@@ -38,31 +38,75 @@ URL http://trucomanx.github.io/pdsit-pkg
 <p>A BibTeX entry for LaTeX users is:</p>
 
 <pre><code>@software{PDSIT,
-author    = {Fernando Pujaico},
-title     = {{PDSIT} Software package for digital signal processing in information theory},
-year      = {2015},
-version   = {1.0.0},
-url       = {http://trucomanx.github.io/pdsit-pkg}
+    author    = {Fernando Pujaico},
+    title     = {{PDSIT} Software package for digital signal 
+                processing in information theory},
+    year      = {2015},
+    version   = {1.0.0},
+    url       = {http://trucomanx.github.io/pdsit-pkg}
 }
 </code></pre>
 
 <p>We have invested a lot of time and effort in creating PDSIT, please cite it
 when using it.</p>
 
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="in-matlab-or-octave" class="anchor" href="#in-matlab-or-octave" aria-hidden="true"><span class="octicon octicon-link"></span></a>In MATLAB or OCTAVE</h3>
+
+<p>For install the library in MATLAB, unzip the pdsit-pkg.tar.gz bellow path</p>
+
+<pre><code>%USERPROFILE%\lib\octmat
+</code></pre>
+
+<p>where %USERPROFILE% represent the home profile directory; for example: </p>
+
+<pre><code>C:\Users\username\lib\octmat
+</code></pre>
+
+<p>The PDSIT package will be unziped (installed) in:</p>
+
+<pre><code>C:\Users\username\lib\octmat\pdsit-pkg
+</code></pre>
+
+<p>For to load the PDSIT package in MATLAB, type the next MATLAB code:</p>
+
+<pre><code>SOURCECODE='C:\Users\username\lib\octmat\pdsit-pkg\pdsit';
+addpath(genpath(SOURCECODE));
+</code></pre>
+
+<h3>
+<a id="only-in-octave" class="anchor" href="#only-in-octave" aria-hidden="true"><span class="octicon octicon-link"></span></a>Only in OCTAVE</h3>
+
+<p>The next OCTAVE code install the PDSIT package in the directory ~/lib/octmat</p>
+
+<pre><code>pkg prefix ~/lib/octmat
+pkg install pdsit-pkg.tar.gz
+</code></pre>
+
+<p>The package is configured for be loaded by default.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>See <a href="https://github.com/trucomanx/pdsit-pkg/blob/master/COPYING">LICENSE</a>.</p>
+
+<h2>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h2>
 
 <p>This package was wrote by <a href="https://github.com/trucomanx" class="user-mention">@trucomanx</a>.</p>
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<h2>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h2>
 
 <p>Having trouble with package? Check out our 
 <a href="https://github.com/trucomanx/pdsit-pkg/tree/master/doc">documentation</a> or 
 <a href="https://github.com/trucomanx">contact support</a>.</p>
 
-<h3>
-<a id="home-page" class="anchor" href="#home-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Home Page</h3>
+<h2>
+<a id="home-page" class="anchor" href="#home-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Home Page</h2>
 
 <p><a href="http://trucomanx.github.io/pdsit-pkg">http://trucomanx.github.io/pdsit-pkg</a>.</p>
 
