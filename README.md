@@ -14,11 +14,12 @@ To cite PDSIT package in publications, use:
 A BibTeX entry for LaTeX users is:
 
 	@software{PDSIT,
-	author    = {Fernando Pujaico},
-	title     = {{PDSIT} Software package for digital signal processing in information theory},
-	year      = {2015},
-	version   = {1.0.0},
-	url       = {http://trucomanx.github.io/pdsit-pkg}
+		author    = {Fernando Pujaico},
+		title     = {{PDSIT} Software package for digital signal 
+					processing in information theory},
+		year      = {2015},
+		version   = {1.0.0},
+		url       = {http://trucomanx.github.io/pdsit-pkg}
 	}
 
 We have invested a lot of time and effort in creating PDSIT, please cite it
