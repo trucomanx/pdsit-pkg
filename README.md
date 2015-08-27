@@ -24,6 +24,34 @@ A BibTeX entry for LaTeX users is:
 We have invested a lot of time and effort in creating PDSIT, please cite it
 when using it.
 
+### Install
+
+## In MATLAB or OCTAVE
+For install the library in MATLAB, unzip the pdsit-pkg.tar.gz bellow path
+
+ %USERPROFILE%\lib\octmat
+
+where %USERPROFILE% represent the home profile directory; for example: 
+
+ C:\Users\username\lib\octmat
+
+The PDSIT package will be unziped (installed) in:
+
+ C:\Users\username\lib\octmat\pdsit-pkg
+
+For to load the PDSIT package in MATLAB, type the next MATLAB code:
+
+ SOURCECODE='C:\Users\username\lib\octmat\pdsit-pkg\pdsit';
+ addpath(genpath(SOURCECODE));
+
+## Only in OCTAVE
+The next OCTAVE code install the PDSIT package in the directory ~/lib/octmat
+
+ pkg prefix ~/lib/octmat
+ pkg install pdsit-pkg.tar.gz
+
+The package is configured for be loaded by default.
+
 ### Authors and Contributors
 This package was wrote by @trucomanx.
 
