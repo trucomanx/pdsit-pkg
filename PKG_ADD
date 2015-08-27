@@ -1,7 +1,13 @@
-PACKAGE='pdsit';
+MYPACKAGE='pdsit';
 VERSION='1.0.0';
 
-path_pfx=[pkg('prefix'),filesep,PACKAGE,'-',VERSION];
+
+desc=pkg('list','pdsit');
+if (max(size(desc))==0)
+	path_pfx = [pkg('prefix'),filesep,MYPACKAGE,'-',VERSION];
+else
+	path_pfx = getfield(desc{1},'dir');
+end
 
 parts={'basics','ceo','omega'};
 
