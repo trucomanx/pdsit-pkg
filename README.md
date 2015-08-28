@@ -18,7 +18,6 @@ A BibTeX entry for LaTeX users is:
 		title     = {{PDSIT} Software package for digital signal 
 					processing in information theory},
 		year      = {2015},
-		version   = {1.0.0},
 		url       = {http://trucomanx.github.io/pdsit-pkg}
 	}
 
@@ -28,7 +27,7 @@ when using it.
 ## Install
 
 ### In MATLAB or OCTAVE
-For install the library in MATLAB, unzip the pdsit-pkg.tar.gz bellow path
+For install the library in MATLAB, unzip the pdsit-pkg.zip bellow path
 
 	%USERPROFILE%\lib\octmat
 
