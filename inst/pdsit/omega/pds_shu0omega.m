@@ -62,7 +62,7 @@ function H = pds_shu0omega(Ps,M)
 	for II=1:STEPS
 		H(1,II)=0;
 
-		if(Ps(1,II)>0)
+		if( (Ps(1,II)>0)&&(Ps(1,II)<1.0) )
 			for KK=0:M
 				H(1,II)=H(1,II)+nchoosek(M,KK)*(Ps(1,II)^KK)*(1.0-Ps(1,II))^(M-KK)*log2(1+(Ps(1,II)/(1-Ps(1,II)))^(M-2*KK));
 			end

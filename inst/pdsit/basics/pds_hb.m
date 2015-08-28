@@ -41,7 +41,7 @@ function H = pds_hb(P)
 	H=zeros(size(P));
 
 	% Only evaluate  values P!=0
-	ID=find( P != 0 );
+	ID=find( (P ~= 0)&&(P ~= 1.0) );
 	H(ID)=-P(ID).*log2(P(ID))-(1-P(ID)).*log2(1-P(ID));
 
 end
