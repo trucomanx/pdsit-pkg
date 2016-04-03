@@ -1,0 +1,9 @@
+# A comment
+pdsit >> PDS Information Theory Package
+Basics
+ pds_hb pds_hbinv
+Ceo
+ pds_bersbceo
+Omega
+ pds_shomega pds_shu0omega
+

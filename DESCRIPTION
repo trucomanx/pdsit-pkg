@@ -5,7 +5,7 @@ Author: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 Maintainer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 Title: PDS Information Theory Package
 Description: PDSIT is a software package with functions for to work in information theory.
-Categories: Biospeckle Laser, Dynamic Laser Speckle,  Processing Images
+Categories: Information theory, CEO
 #Problems: Nothing I known
 Url: http://trucomanx.github.io/pdsit-pkg
 Autoload: true
