@@ -16,6 +16,10 @@ function opt=__new_header__(options)
   <script src=\"%rootfixed.js\" type=\"text/javascript\"></script>\n\
   <script src=\"%rootjavascript.js\" type=\"text/javascript\"></script>\n\
   <link rel=\"shortcut icon\" href=\"%rootfavicon.ico\" />\n\
+  <script type=\"text/javascript\" src=\"http://latex.codecogs.com/latexit.js\"></script>\n\
+  <script type=\"text/javascript\">\n\
+  LatexIT.add('pre',true);\n\
+  </script>\n\
   </head>\n\
   <body %body_command>\n\
   <div id=\"top-menu\" class=\"menu\">\n\

@@ -671,3 +671,21 @@ DIV.package_display A.package_link {
 DIV.package_display A.download_link {
     background-image: url("download.png");
 }
+
+
+.latexcode {
+  background-color:#F1F1F1;
+  border:1px solid #000000;
+  padding:10px;
+  overflow:auto
+  margin:7px;
+  color:#0150c7;
+}
+.mcode {
+  background-color:#000000;
+  border:1px solid #000000;
+  padding:10px;
+  overflow:auto
+  margin:7px;
+  color:#00FF00;
+}

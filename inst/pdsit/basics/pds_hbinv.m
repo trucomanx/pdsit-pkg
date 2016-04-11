@@ -1,20 +1,5 @@
-function P = pds_hbinv(H)
+%  Copyright (C) 2015, 2016   Fernando Pujaico Rivera
 %
-% P = pds_hbinv(H)
-%
-% The function return the inverse of pds_hb(), the inverse P probability of 
-% binary entropy H.
-%
-% Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
-%
-% Input:
-%   H  is the binary entropy of P, this can be a value vector or matrix.
-%
-% Output:
-%   P  is a probability. If H is a matrix o vector, the inverse of binary entropy
-%      is calculated element by element.
-%
-
 %  This file is a part of the PDS Information Theory (PDSIT) package.
 %
 %  This PDSIT computer package is free software; you can redistribute it
@@ -30,6 +15,25 @@ function P = pds_hbinv(H)
 %  You should have received a copy of the GNU General Public License
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
+
+function P = pds_hbinv(H)
+%
+%  The function return the inverse of pds_hb(), the inverse P probability of 
+%  binary entropy H.
+%
+%  P = pds_hbinv(H)
+%
+%  $H=h_b(P)= -P~log_2(P)-(1-P) log_2(1-P)$
+%  $P = h_b^{-1}(H),~0\leq P\leq 0.5$
+%
+%  Input:
+%    H  is the binary entropy of P, this can be a value vector or matrix.
+%
+%  Output:
+%    P  is a probability. If H is a matrix o vector, the inverse of binary entropy
+%       is calculated element by element.
+%
+%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
