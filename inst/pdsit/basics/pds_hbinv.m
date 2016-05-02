@@ -31,20 +31,23 @@ function P = pds_hbinv(H)
 %
 %  Output:
 %    P  is a probability. If H is a matrix o vector, the inverse of binary entropy
-%       is calculated element by element.
+%       is calculated for element of H. so that $H_i=-P_i~log_2(P_i)-(1-P_i) log_2(1-P_i)$.
+%       If the element $H_i$, of H, is greater than or equal to 1, then $P_i=0.5$.
+%       If the element $H_i$, of H, is less than or equal to 0, then $P_i=0.0$.
 %
-%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
 %
+
+%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
+
 	P=arrayfun(@hbinvval,H);
 
 end
 
 
 function P = hbinvval (H)
-
 
 	if H<=0
 

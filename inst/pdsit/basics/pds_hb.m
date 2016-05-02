@@ -27,22 +27,24 @@ function H = pds_hb(P)
 %  
 %
 %  Input:
-%    P  is a probability, this can be a value vector or matrix.
+%    P  is a probability, this can be a value, vector or matrix.
 %
 %  Output:
 %   H   is the binary entropy of P. If P is a matrix o vector, the binary entropy
-%       is calculated element by element.
+%       is calculated for each element of P, so that $H_i=-P_i~log_2(P_i)-(1-P_i) log_2(1-P_i)$.
+%       If the element $P_i$, of P, is greater than or equal to 1, then $P_i=0.0$.
+%       If the element $P_i$, of P, is less than or equal to 0, then $P_i=0.0$.
 %
-%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
 %
 
+%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 	H=zeros(size(P));
 
 	% Only evaluate  values P!=0
-	ID=find( (P ~= 0)&&(P ~= 1.0) );
+	ID=find( (P > 0)&&(P < 1.0) );
 	H(ID)=-P(ID).*log2(P(ID))-(1-P(ID)).*log2(1-P(ID));
 
 end
