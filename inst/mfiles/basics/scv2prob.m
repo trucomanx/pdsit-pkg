@@ -16,7 +16,7 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function pr=scv2prob(P,CONF,V)
+function [PR IDL]=scv2prob(P,CONF,V)
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
@@ -25,17 +25,19 @@ function pr=scv2prob(P,CONF,V)
 %  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 
 	V=round(V);
-	pr=0;
+	PR=0;
 
 	V=V-CONF.MIN+1;
 
-	if length(find(V<1))==0
-	
-		ID=vec2ind(CONF.M,V);
+	IDL=-1;
 
-		pr=nonzeros(P(ID,1));
-		if length(pr)==0
-			pr=0;
+	if length(find(V<1 & V >CONF.M))==0
+	
+		IDL=vec2ind(CONF.M,V);
+
+		PR=nonzeros(P(IDL,1));
+		if length(PR)==0
+			PR=0;
 		end
 	end
 end
