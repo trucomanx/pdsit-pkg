@@ -17,11 +17,11 @@
 %  <http://www.gnu.org/licenses>.
 
 
-function H = pds_hb(P)
+function H = hb_func(P)
 %
 %  The function return H, the binary entropy of P probability.
 % 
-%  H = pds_hb(P)
+%  H = hb_func(P)
 % 
 %  $H= -P~log_2(P)-(1-P) log_2(1-P)$
 %  
@@ -32,8 +32,8 @@ function H = pds_hb(P)
 %  Output:
 %   H   is the binary entropy of P. If P is a matrix o vector, the binary entropy
 %       is calculated for each element of P, so that $H_i=-P_i~log_2(P_i)-(1-P_i) log_2(1-P_i)$.
-%       If the element $P_i$, of P, is greater than or equal to 1, then $P_i=0.0$.
-%       If the element $P_i$, of P, is less than or equal to 0, then $P_i=0.0$.
+%       If the element $P_i$, of P, is greater than or equal to 1, then $H_i=0.0$.
+%       If the element $P_i$, of P, is less than or equal to 0, then $H_i=0.0$.
 %
 %
 %  For help, bug reports and feature suggestions, please visit:

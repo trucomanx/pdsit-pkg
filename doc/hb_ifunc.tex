@@ -30,7 +30,7 @@
 }
 
 %opening
-\title{pds\_hb.m}
+\title{hb\_ifunc.m}
 \author{Fernando Pujaico Rivera}
 
 \begin{document}
@@ -38,20 +38,24 @@
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-The function pds\_hb() represent the binary entropy.
+The function hb\_ifunc() represent the inverse function of binary entropy.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-The function pds\_hb() in the m-file pds\_hb.m is defined as:
+The function hb\_ifunc() in the m-file hb\_ifunc.m is defined as:
 \lstset{language=octave}%orden importa
 \begin{lstlisting}
- H = pds_hb(P);
+ P = hb_ifunc(H);
 \end{lstlisting}
-This function represent the formulation of binary entropy $H$ of probability $P$.
+This function represent the formulation of inverse function $h_b^{-1}()$ of binary entropy 
+function $h_b()$; being  $H$ the binary entropy of probability $P$.
+\begin{equation}\label{eq:hbinv}
+ P=h_b^{-1}(H)
+\end{equation}
 
 \begin{equation}\label{eq:hb}
-H = -P~log_2(P) -(1-P)~log_2(1-P)
+H=h_b(P)=-P~log_2(P) -(1-P)~log_2(1-P)
 \end{equation}
 This form is showed in \cite{thomas}.
 

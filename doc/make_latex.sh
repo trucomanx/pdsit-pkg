@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-pdflatex pds_hb
-pdflatex pds_hb
+pdflatex hb_func
+pdflatex hb_func
 
-pdflatex pds_hbinv
-pdflatex pds_hbinv
+pdflatex hb_ifunc
+pdflatex hb_ifunc
 
 pdflatex pds_shu0omega
 pdflatex pds_shu0omega

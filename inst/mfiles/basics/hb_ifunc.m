@@ -16,12 +16,12 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function P = pds_hbinv(H)
+function P = hb_ifunc(H)
 %
-%  The function return the inverse of pds_hb(), the inverse P probability of 
+%  The function return the inverse of hb_func(), the inverse P probability of 
 %  binary entropy H.
 %
-%  P = pds_hbinv(H)
+%  P = hb_ifunc(H)
 %
 %  $H=h_b(P)= -P~log_2(P)-(1-P) log_2(1-P)$
 %  $P = h_b^{-1}(H),~0\leq P\leq 0.5$
@@ -63,9 +63,9 @@ function P = hbinvval (H)
 		P_MIN=0.0;
 		P_MAX=0.5;
 
-		while (abs(pds_hb(P)-H)/H)>(0.01/100)	
+		while (abs(hb_func(P)-H)/H)>(0.01/100)	
 
-			if pds_hb(P)>H
+			if hb_func(P)>H
 				P_MAX=P;
 			else
 				P_MIN=P;
