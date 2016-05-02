@@ -31,7 +31,7 @@ function [PR IDL]=scv2prob(P,CONF,V)
 
 	IDL=-1;
 
-	if length(find(V<1 & V >CONF.M))==0
+	if length(find(V<1 | V >CONF.M))==0
 	
 		IDL=vec2ind(CONF.M,V);
 
