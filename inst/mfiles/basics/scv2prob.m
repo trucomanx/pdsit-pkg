@@ -17,6 +17,42 @@
 %  <http://www.gnu.org/licenses>.
 
 function [PR IDL]=scv2prob(P,CONF,V)
+%  This function return the joint probability of N signals x_i, for all 1<= i <=N.
+%  The function use the data returned by experimental joint probability function,
+%  see 'help exp_joint_prob'. 
+%
+%  PR       = scv2prob(P,CONF,V);
+%  [PR IDL] = scv2prob(P,CONF,V);
+%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3]); % PR=Pr(x_1=a_1, x_2=a_2, x_3=a_3) 
+%  
+%  Input:
+%   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
+%   CONF is a structure with the configuration data of sparse matrix P.
+%        CONF.MIN : It is a vector with the minimum values of each x_i signal.
+%                   The length of vector is N.
+%        CONF.M   : It is a vector with the dimensions of matrix P, the length
+%                   of vector is N.
+%   V    is a vector of length N, V has the N-tuple (a_1, a_2, ..., a_N)
+%        of (x_1, x_2, ..., x_N), which you want to get the probability
+%        Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N). 
+%
+%  Output:
+%   PR   is the joint probabilities of Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N).
+%   IDL  is the linear index, in the sparse matrix P, correspondent to the 
+%        vector V. If any element of vector V is out of range, then the function 
+%        return IDL=-1 and PR=0.
+%
+%  EXAMPLE:
+%  Given 4 signals x_1, x_2, x_3 and x_4, with a sparse joint probability 
+%  matrix P and a structure CONF with the configuration data (obtained by 
+%  exp_joint_prob() function), the value PR of joint probability
+%  Pr(x_1=a_1, x_2=a_2, x_3=a_3, x_4=a_4) can be obtained as:
+%  
+%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3 a_4]); 
+%
+%  Additionally the function return the linear index equivalent to vector index
+%  [a_1 a_2 a_3 a_4].
+%
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/

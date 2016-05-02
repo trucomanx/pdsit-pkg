@@ -42,7 +42,7 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 %   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
 %        For get the probabilities without the position you can use:   nonzero(P)
 %        For get the probabilities to a specific n-tuple (x_1=a, x_2=b, x_3=c, ..)
-%        you can use the function  'scv2prob()', see the example.
+%        you can use the function  'scv2prob()', see the example bellow.
 %   CONF is a structure with the configuration data of sparse matrix P.
 %        CONF.MIN : It is a vector with the minimum values of each x_i signal.
 %                   The length of vector is Nvars.
