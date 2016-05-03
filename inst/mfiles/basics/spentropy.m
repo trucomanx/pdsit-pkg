@@ -63,8 +63,6 @@ function [H M]=spentropy(P)
 
 	M=length(Q);
 
-	H=0;
-	for II=1:M
-		H=H-Q(II)*log2(Q(II));
-	end
+	H=-sum(Q.*log2(Q));
+
 end
