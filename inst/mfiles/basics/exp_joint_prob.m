@@ -17,7 +17,7 @@
 %  <http://www.gnu.org/licenses>.
 
 
-function [P CONF]= exp_joint_prob(X,T='lines')
+function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 %
 %  The function returns the experimental joint probability between a set of N
 %  signals x_i, for all 1<= i <=N, before begin the calculus is applied
@@ -27,16 +27,30 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 %  signals x_i. If T='lines', then X= [X_1; X_2; X_3; ...]. By other side if 
 %  T='columns' then the samples of x_i are located in the columns of X matrix.
 % 
-%  P = exp_joint_prob(X);             % Joint probability of the lines of matrix X.
-%  P = exp_joint_prob(X,T);           % T can be equal to 'lines' or 'columns'.
-%  [P CONF] = exp_joint_prob(X);      % Additionally return configuration data.
-%  [P CONF] = exp_joint_prob(X,T);    % T can be equal to 'lines' or 'columns'.
+%  P = exp_joint_prob(X);              % Joint probability between the lines of matrix X.
+%  P = exp_joint_prob(X,T);            % T can be equal to 'lines' or 'columns'.
+%  P = exp_joint_prob(X,T,CONF);       % Specify the minimum and the dimension of the signals.
+%  [P CONF] = exp_joint_prob(X);       % Additionally return configuration data.
+%  [P CONF] = exp_joint_prob(X,T);     % T can be equal to 'lines' or 'columns'.
+%  [P CONF] = exp_joint_prob(X,T,CONF);% The CONF in the output is equal to CONF in the input.
 %  
 %
 %  Input:
 %   X    is a matrix with the samples of signals x_i.
 %   T    is an indicator, this shows if the samples of x_i are in the lines 
 %        (T='lines') or in the columns (T='columns') of X.
+%   CONF [Optional] is a structure that set the configuration data of 
+%        sparse matrix P.  
+%        CONF.MIN : It is a vector with the minimum values of x_i, samples in X
+%                   with any element bellow this minimum cause an error. 
+%                   The length of vector is N.
+%        CONF.M   : It is a vector with the scale dimension of each signal x_i, 
+%                   The maximum analyzed values will be MAX=CONF.MIN+CONF.M-1, 
+%                   samples in X with any element above your maximum value cause 
+%                   an error. the length of CONF.M vector is N.
+%        If this structure is not used, then CONF.MIN is formed with the minimum 
+%        values by signal in X, and CONF.M is calculated using the maximum values  
+%        MAX of signals, so that CONF.M=MAX-CONF.MIN+1.
 %
 %  Output:
 %   P    is a sparse matrix with the joint probabilities of the N signals x_i.
@@ -48,6 +62,7 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 %                   The length of vector is N.
 %        CONF.M   : It is a vector with the dimensions of matrix P, the length
 %                   of vector is N.
+%        If CONF also is an input parameter, then both structures are equals. 
 %
 %
 %  EXAMPLE: 
@@ -87,10 +102,27 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 	N = size(X,1);
 	Lsamples = size(X,2);
 
-	% Calculating the size M of matrix P when no sparce.
-	CONF.MIN=min(X');
-	CONF.M=max(X')-CONF.MIN+1;
+	if nargin >=3
+		if( isstruct(varargin{1})==0 )
+			error('The third argument is not a structure!');
+		end
+		if( isfield (varargin{1}.MIN, "name")==0 )
+			error('The MIN field not exist!');
+		end
 
+		if( isfield (varargin{1}.M, "name")==0 )
+			error('The M field not exist!');
+		end
+
+		if( N~=length(varargin{1}.MIN) || N~=length(varargin{1}.MIN) )
+			error('The number of elements of fields M and MIN should be equal to the number of signals!');
+		end
+		CONF=varargin{1};
+	else
+		% Calculating the size M of matrix P when no sparce.
+		CONF.MIN=min(X');
+		CONF.M=max(X')-CONF.MIN+1;
+	end
 
 	ID=zeros(Lsamples,1);
 	ONES=ones(Lsamples,1);
