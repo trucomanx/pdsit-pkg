@@ -1,7 +1,7 @@
 # A comment
 pdsit >> PDS Information Theory Package
 Basics
- pds_hb pds_hbinv
+ exp_joint_prob  hb_func  hb_ifunc  scv2prob  vec2ind
 Ceo
  pds_bersbceo
 Omega
