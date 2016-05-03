@@ -19,8 +19,8 @@
 
 function [P CONF]= exp_joint_prob(X,T='lines')
 %
-%  The function returns the experimental joint probability between a set of Nvars
-%  signals x_i, for all 1<= i <=Nvars, before begin the calculus is applied
+%  The function returns the experimental joint probability between a set of N
+%  signals x_i, for all 1<= i <=N, before begin the calculus is applied
 %  internally the round(X) function over X.
 %  
 %  The function uses as input a matrix X formed by the sample vectors X_i of 
@@ -39,15 +39,15 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 %        (T='lines') or in the columns (T='columns') of X.
 %
 %  Output:
-%   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
+%   P    is a sparse matrix with the joint probabilities of the N signals x_i.
 %        For get the probabilities without the position you can use:   nonzero(P)
 %        For get the probabilities to a specific n-tuple (x_1=a, x_2=b, x_3=c, ..)
 %        you can use the function  'scv2prob()', see the example bellow.
 %   CONF is a structure with the configuration data of sparse matrix P.
 %        CONF.MIN : It is a vector with the minimum values of each x_i signal.
-%                   The length of vector is Nvars.
+%                   The length of vector is N.
 %        CONF.M   : It is a vector with the dimensions of matrix P, the length
-%                   of vector is Nvars.
+%                   of vector is N.
 %
 %
 %  EXAMPLE: 
@@ -84,28 +84,28 @@ function [P CONF]= exp_joint_prob(X,T='lines')
 		X=X';
 	end
 
-	Nvars = size(X,1);
-	Nsamples = size(X,2);
+	N = size(X,1);
+	Lsamples = size(X,2);
 
 	% Calculating the size M of matrix P when no sparce.
 	CONF.MIN=min(X');
 	CONF.M=max(X')-CONF.MIN+1;
 
 
-	ID=zeros(Nsamples,1);
-	ONES=ones(Nsamples,1);
+	ID=zeros(Lsamples,1);
+	ONES=ones(Lsamples,1);
 
 	%%% Transform X for only posssitive values > 0.
 	X=X-CONF.MIN'+1;
 
 	%%% creando P histograma multidimensional.
-	for II=1:Nsamples
+	for II=1:Lsamples
 		ID(II)=vec2ind(CONF.M,X(:,II)');		
 	end
 	P=sparse(ID,ONES,ONES);
 
 	%%% encontrado la probabilidad.
-	P=P/Nsamples;
+	P=P/Lsamples;
 end
 
 
