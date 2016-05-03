@@ -16,22 +16,15 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function [PR IDL]=scv2prob(P,CONF,V)
+function H=spentropy(P)
 %  This function return the joint probability of N signals x_i, for all 1<= i <=N.
 %  The function use the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
 %
-%  PR       = scv2prob(P,CONF,V);
-%  [PR IDL] = scv2prob(P,CONF,V);
-%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3]); % PR=Pr(x_1=a_1, x_2=a_2, x_3=a_3) 
+%  H=entropysp(P);
 %  
 %  Input:
-%   P    is a sparse matrix with the joint probabilities of the N signals x_i.
-%   CONF is a structure with the configuration data of sparse matrix P.
-%        CONF.MIN : It is a vector with the minimum values of each x_i signal.
-%                   The length of vector is N.
-%        CONF.M   : It is a vector with the dimensions of matrix P, the length
-%                   of vector is N.
+%   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
 %   V    is a vector of length N, V has the N-tuple (a_1, a_2, ..., a_N)
 %        of (x_1, x_2, ..., x_N), which you want to get the probability
 %        Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N). 
@@ -60,20 +53,20 @@ function [PR IDL]=scv2prob(P,CONF,V)
 
 %  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 
-	V=round(V);
-	PR=0;
+	if( issparse(P)==0 )
+		error('The input parameter is not a sparse matrix.');
+	end
 
-	V=V-CONF.MIN+1;
+	Q=nonzeros(P);
 
-	IDL=-1;
+	if( abs(sum(Q)-1.0)>10*eps )
+		error('The sum of probabilities is different of 1.0.');
+	end
 
-	if length(find(V<1 | V >CONF.M))==0
-	
-		IDL=vec2ind(CONF.M,V);
+	N=length(Q);
 
-		PR=nonzeros(P(IDL,1));
-		if length(PR)==0
-			PR=0;
-		end
+	H=0;
+	for II=1:N
+		H=H-Q(II)*log2(Q(II));
 	end
 end

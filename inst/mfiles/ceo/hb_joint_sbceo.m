@@ -16,26 +16,29 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function H = pds_shu0omega(Ps,M)
+function Hj=hb_joint_sbceo(Ps,M)
 %
-%  The function return the conditional entropy H in the binary symmetric CEO 
-%  problem.
+%  The function returns the joint binary entropy H(U_1 U_2 ... U_M) in the 
+%  symmetric binary CEO problem of M sources U_i creates from a common source U_0.
 %
-%  H = pds_shu0omega(Ps,M)
+%  Hj=hb_joint_sbceo(Ps,M)
 %
-%  $ H = H(U_0|\Omega_M) = H(U_0|U_1 U_2 ... U_M) $
+%  $ Hj = H(\Omega_M) = H(U_1 U_2 ... U_M) $
 %
 %  The function calculates the symmetric case when $Ps = Pr(U_i|U_0)$ and 
-%  $Pr(U0=1)=0.5)$. At to end the entropy H is calculated as:
+%  $Pr(U0=1)=0.5)$. At to end, the entropy Hj is calculated as:
 %
-%  $ H = \sum_{k=0}^M \binom{M}{k} Ps^k (1-Ps)^{M-k} log2( 1 + {Ps/(1-Ps)}^{M-2*k}) $
+%  $ Hj = -\sum_{k=0}^M \binom{M}{k} Prob(k)log_2( Prob(k) ) $
 %
-%  The last equation can be seen in [1] in page 49.
+%  $ Prob(k)=0.5 ( Ps^k (1-Ps)^{M-k} + Ps^{M-k} (1-Ps)^k ) $
+%
+%  The last equation can be seen in [1].
 %
 %  References:
-%  [1] Heshmati, Ashkan   (2007) Data compression and transmission in   
-%      Wireless Sensor Networks. Masters thesis, Concordia University. 
-%      URL http://spectrum.library.concordia.ca/975271/ 
+%  [1]  Ferrari, G.; Martalo, M.; Abrardo, A.; Raheli, R., "Orthogonal multiple 
+%       access and information fusion: How many observations are needed?," 
+%       Information Theory and Applications Workshop (ITA), 2012 , vol., no., 
+%       pp.311,320, 5-10 Feb. 2012. doi: 10.1109/ITA.2012.6181783
 %
 %  Input:
 %   Ps  is the probability of BSC channels, Pr(Ui~=U0|U0)=Ps. Ps can be a value
@@ -43,29 +46,27 @@ function H = pds_shu0omega(Ps,M)
 %   M   is the number of BSC channels in the CEO problem. M only can be a value.
 %
 %  Output:
-%   H  is the the conditional entropy of H(U0 |U1 U2 ... UM).
-%
-%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
+%   Hj is the the joint entropy H(U1 U2 ... UM).
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
 %
+
+%  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
+
 	if(~isvector(Ps))
 		error('Ps should be a vector or value');
 	end
 
-	STEPS=length(Ps);
-	H =zeros(1,STEPS);
+	Hj=zeros(size(Ps));
 
+	for K=0:M
+	
+		ProbK=0.5*( (Ps.^K).*(1-Ps).^(M-K) + ((1-Ps).^(K)).*Ps.^(M-K) );
+	
+		ID=find( ProbK > 0 );
 
-	for II=1:STEPS
-		H(1,II)=0;
-
-		if( (Ps(1,II)>0)&&(Ps(1,II)<1.0) )
-			for KK=0:M
-				H(1,II)=H(1,II)+nchoosek(M,KK)*(Ps(1,II)^KK)*(1.0-Ps(1,II))^(M-KK)*log2(1+(Ps(1,II)/(1-Ps(1,II)))^(M-2*KK));
-			end
-		end
+		Hj(ID)=Hj(ID)-nchoosek(M,K)*ProbK(ID).*log2(ProbK(ID));
 	end
 
 end
