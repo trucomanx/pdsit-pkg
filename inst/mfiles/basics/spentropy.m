@@ -45,6 +45,10 @@ function [H M varargout]=spentropy(P,varargin)
 
 %  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 
+	if( (nargin==1) && (nargout>2) )
+		error('The third output parameter is only enabled when exist a second input parameter.');
+	end
+
 	if( issparse(P)==0 )
 		error('The input parameter is not a sparse matrix.');
 	end

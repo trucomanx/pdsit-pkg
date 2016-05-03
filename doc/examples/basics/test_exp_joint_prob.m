@@ -25,5 +25,5 @@ disp(sprintf('With linear index %d',idl));
 % [ 6 3 -1 ] -> 1/16	% [ 5 4 -1 ] -> 1/16	% [ 3 3  1 ] -> 1/16
 % [ 2 4 -1 ] -> 1/16
 
-[H M Hmax]=spentropy(P)
+[H M Hmax]=spentropy(P,CONF)
 log2(M)
