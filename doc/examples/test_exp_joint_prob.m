@@ -12,7 +12,7 @@ X = [ X_1; X_2; X_3];
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
 %  Pr(x_1=a,x_2=b,x_3=c) is equal to prob:
 
-VEC=[9 2 1]
+VEC=[7 2 1]
 [prob idl]=scv2prob(P,CONF,VEC);
 prob
 disp(sprintf('With linear index %d',idl));
