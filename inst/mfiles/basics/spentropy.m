@@ -16,7 +16,7 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function [H M]=spentropy(P,varargin)
+function [H M varargout]=spentropy(P,varargin)
 %  This function return the joint probability of N signals x_i, for all 1<= i <=N.
 %  The function use the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
@@ -59,8 +59,8 @@ function [H M]=spentropy(P,varargin)
 
 	H=-sum(Q.*log2(Q));
 
-	if (nargin>1)
-		Hmax=log2(prod(varargin{1}.M));
+	if( (nargin>1) && (nargout>2) )
+		varargout{1}=log2(prod(varargin{1}.M));
 	end
 
 end
