@@ -16,11 +16,11 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function BER = pds_bersbceo(Ps,M)
+function BER = ber_sbceo(Ps,M)
 %
-%  BER in symetric binary CEO problem.
+%  BER in the symmetric binary CEO problem.
 %
-%  BER = pds_bersbceo(Ps,M)
+%  BER = ber_sbceo(Ps,M)
 %
 %  This function calculates the Bit Error Rate of decoding the source
 %  U0 (with probability $Pr(U0=1)=0.5)$ in the binary CEO problem for

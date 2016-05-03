@@ -3,7 +3,7 @@ pdsit >> PDS Information Theory Package
 Basics
  exp_joint_prob  hb_func  hb_ifunc  scv2prob  vec2ind
 Ceo
- pds_bersbceo
+ ber_sbceo
 Omega
- pds_shomega pds_shu0omega
+ hb_joint_sbceo pds_shu0omega
 

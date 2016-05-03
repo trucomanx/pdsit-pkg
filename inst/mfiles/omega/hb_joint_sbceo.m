@@ -16,12 +16,12 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function H=pds_shomega(Ps,M)
+function H=hb_joint_sbceo(Ps,M)
 %
-%  The function return the joint entropy H in the binary symmetric CEO 
+%  The function return the joint entropy H in the symmetric binary CEO 
 %  problem.
 %
-%  H=pds_shomega(Ps,M)
+%  H=hb_joint_sbceo(Ps,M)
 %
 %  $ H = H(\Omega_M) = H(U_1 U_2 ... U_M) $
 %
