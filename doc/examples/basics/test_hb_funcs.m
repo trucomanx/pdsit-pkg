@@ -1,3 +1,5 @@
+% Examples of hb_func and hb_ifunc
+
 disp('Testing variable');
 p1=0.1
 h1=hb_func(p1)
