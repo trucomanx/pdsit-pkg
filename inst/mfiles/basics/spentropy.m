@@ -16,18 +16,16 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function H=spentropy(P)
+function [H M]=spentropy(P)
 %  This function return the joint probability of N signals x_i, for all 1<= i <=N.
 %  The function use the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
 %
-%  H=entropysp(P);
+%  H     = spentropy(P);
+%  [H M] = spentropy(P);
 %  
 %  Input:
 %   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
-%   V    is a vector of length N, V has the N-tuple (a_1, a_2, ..., a_N)
-%        of (x_1, x_2, ..., x_N), which you want to get the probability
-%        Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N). 
 %
 %  Output:
 %   PR   is the joint probabilities of Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N).
@@ -63,10 +61,10 @@ function H=spentropy(P)
 		error('The sum of probabilities is different of 1.0.');
 	end
 
-	N=length(Q);
+	M=length(Q);
 
 	H=0;
-	for II=1:N
+	for II=1:M
 		H=H-Q(II)*log2(Q(II));
 	end
 end
