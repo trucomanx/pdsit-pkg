@@ -7,9 +7,9 @@ X_2=[ 2  3  4  2  3  4  2  3  4  2  3  4  2  3  4  2];
 X_3=[-1 -1  1  1 -1 -1  1  1  1  1 -1 -1  1  1 -1 -1];
 
 X = [ X_1; X_2; X_3]
-CONF.MIN=[-10 -10 -10];
-CONF.M=[20 20 20];
-[P CONF]= exp_joint_prob(X,'lines',CONF)
+%CONF.MIN=[-10 -10 -10];
+%CONF.M=[20 20 20];
+[P CONF]= exp_joint_prob(X,'lines')
 
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
 %  Pr(x_1=a,x_2=b,x_3=c) is equal to prob:
@@ -25,5 +25,5 @@ disp(sprintf('With linear index %d',idl));
 % [ 6 3 -1 ] -> 1/16	% [ 5 4 -1 ] -> 1/16	% [ 3 3  1 ] -> 1/16
 % [ 2 4 -1 ] -> 1/16
 
-[H M]=spentropy(P)
+[H M Hmax]=spentropy(P)
 log2(M)

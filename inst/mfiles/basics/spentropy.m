@@ -16,34 +16,28 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function [H M]=spentropy(P)
+function [H M]=spentropy(P,varargin)
 %  This function return the joint probability of N signals x_i, for all 1<= i <=N.
 %  The function use the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
 %
-%  H     = spentropy(P);
-%  [H M] = spentropy(P);
+%  H          = spentropy(P);
+%  [H M]      = spentropy(P);
+%  [H M Hmax] = spentropy(P,CONF);
 %  
 %  Input:
-%   P    is a sparse matrix with the joint probabilities of the Nvars signals x_i.
+%   P    is a sparse matrix with the joint probabilities of the N signals x_i.
+%   CONF is a structure with the configuration data of sparse matrix P.
+%        CONF.MIN : It is a vector with the minimum values of each x_i signal.
+%                   The length of vector is N.
+%        CONF.M   : It is a vector with the dimensions of matrix P, the length
+%                   of vector is N.
 %
 %  Output:
-%   PR   is the joint probabilities of Pr(x_1=a_1, x_2=a_2, x_3=a_3, ..., x_N=a_N).
-%   IDL  is the linear index, in the sparse matrix P, correspondent to the 
-%        vector V. If any element of vector V is out of range, then the function 
-%        return IDL=-1 and PR=0.
-%
-%  EXAMPLE:
-%  Given 4 signals x_1, x_2, x_3 and x_4, with a sparse joint probability 
-%  matrix P and a structure CONF with the configuration data (obtained by 
-%  exp_joint_prob() function), the value PR of joint probability
-%  Pr(x_1=a_1, x_2=a_2, x_3=a_3, x_4=a_4) can be obtained as:
-%  
-%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3 a_4]); 
-%
-%  Additionally the function return the linear index equivalent to vector index
-%  [a_1 a_2 a_3 a_4].
-%
+%   H    is the joint entropy H(x_1,x_2,x_3,...,x_N).
+%   M    is the the number of elements non zero probabilities in the sparse 
+%        matrix P.
+%   Hmax is the maximum entropy acording the CONF structure. Hmax=log2(prod(CONF.M))
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
@@ -64,5 +58,9 @@ function [H M]=spentropy(P)
 	M=length(Q);
 
 	H=-sum(Q.*log2(Q));
+
+	if (nargin>1)
+		Hmax=log2(prod(varargin{1}.M));
+	end
 
 end
