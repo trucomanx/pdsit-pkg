@@ -106,11 +106,11 @@ function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 		if( isstruct(varargin{1})==0 )
 			error('The third argument is not a structure!');
 		end
-		if( isfield (varargin{1}.MIN, "name")==0 )
+		if( isfield (varargin{1}, "MIN")==0 )
 			error('The MIN field not exist!');
 		end
 
-		if( isfield (varargin{1}.M, "name")==0 )
+		if( isfield (varargin{1}, "M")==0 )
 			error('The M field not exist!');
 		end
 

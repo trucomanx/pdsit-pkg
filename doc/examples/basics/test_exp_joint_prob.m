@@ -7,7 +7,9 @@ X_2=[ 2  3  4  2  3  4  2  3  4  2  3  4  2  3  4  2];
 X_3=[-1 -1  1  1 -1 -1  1  1  1  1 -1 -1  1  1 -1 -1];
 
 X = [ X_1; X_2; X_3]
-[P CONF]= exp_joint_prob(X)
+CONF.MIN=[-10 -10 -10];
+CONF.M=[20 20 20];
+[P CONF]= exp_joint_prob(X,'lines',CONF)
 
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
 %  Pr(x_1=a,x_2=b,x_3=c) is equal to prob:
