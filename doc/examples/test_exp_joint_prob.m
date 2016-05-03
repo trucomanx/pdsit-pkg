@@ -6,7 +6,7 @@ X_1=[ 1  2  3  4  5  6  7  8  8  7  6  5  4  3  2  1];
 X_2=[ 2  3  4  2  3  4  2  3  4  2  3  4  2  3  4  2];
 X_3=[-1 -1  1  1 -1 -1  1  1  1  1 -1 -1  1  1 -1 -1];
 
-X = [ X_1; X_2; X_3];
+X = [ X_1; X_2; X_3]
 [P CONF]= exp_joint_prob(X)
 
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
