@@ -19,18 +19,20 @@
 
 function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 %
-%  The function returns the experimental joint probability between a set of N
+%  The function returns the experimental joint probability mass function, 
+%  between a set of N discretes random variables with
 %  signals x_i, for all 1<= i <=N, before begin the calculus is applied
-%  internally the round(X) function over X.
+%  internally the round(X) function over X (given that are discretes random variables).
+%  The returned probability is a sparce matrix.
 %  
 %  The function uses as input a matrix X formed by the sample vectors X_i of 
-%  signals x_i. If T='lines', then X= [X_1; X_2; X_3; ...]. By other side if 
+%  signals x_i. If T='lines', then X= [X_1; X_2; X_3; ...; X_N]. By other side if 
 %  T='columns' then the samples of x_i are located in the columns of X matrix.
 % 
 %  P = exp_joint_prob(X);              % Joint probability between the lines of matrix X.
 %  P = exp_joint_prob(X,T);            % T can be equal to 'lines' or 'columns'.
 %  P = exp_joint_prob(X,T,CONF);       % Specify the minimum and the dimension of the signals.
-%  [P CONF] = exp_joint_prob(X);       % Additionally return configuration data.
+%  [P CONF] = exp_joint_prob(X);       % Additionally returns configuration data.
 %  [P CONF] = exp_joint_prob(X,T);     % T can be equal to 'lines' or 'columns'.
 %  [P CONF] = exp_joint_prob(X,T,CONF);% The CONF in the output is equal to CONF in the input.
 %  

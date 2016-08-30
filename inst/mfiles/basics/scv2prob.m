@@ -17,7 +17,9 @@
 %  <http://www.gnu.org/licenses>.
 
 function [PR IDL]=scv2prob(P,CONF,V)
-%  This function return the joint probability of N signals x_i, for all 1<= i <=N.
+%  This function return the joint probability of a vector that represent a state 
+%  of a set of N signals x_i, for all 1<= i <=N. The probability will be search
+%  in a sparce matrix P.
 %  The function use the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
 %

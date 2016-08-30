@@ -17,27 +17,33 @@
 %  <http://www.gnu.org/licenses>.
 
 function [H M varargout]=spentropy(P,varargin)
-%  This function return the joint probability of N signals x_i, for all 1<= i <=N.
-%  The function use the data returned by experimental joint probability function,
+%  This function returns the joint entropy of the joint probability mass function, 
+%  between a set of N discretes random variables with N signals x_i, 
+%  for all 1<= i <=N.
+%  The function uses as input parameter a sparce matrix.
+%  The function uses the data returned by experimental joint probability function,
 %  see 'help exp_joint_prob'. 
 %
 %  H          = spentropy(P);
 %  [H M]      = spentropy(P);
+%  %% Additional parameter
 %  [H M Hmax] = spentropy(P,CONF);
 %  
 %  Input:
 %   P    is a sparse matrix with the joint probabilities of the N signals x_i.
-%   CONF is a structure with the configuration data of sparse matrix P.
+%   CONF [Optional] is a structure with the configuration data of sparse matrix P.
 %        CONF.MIN : It is a vector with the minimum values of each x_i signal.
 %                   The length of vector is N.
 %        CONF.M   : It is a vector with the dimensions of matrix P, the length
 %                   of vector is N.
+%        This data only is used to calculates the Hmax output parameter.
 %
 %  Output:
 %   H    is the joint entropy H(x_1,x_2,x_3,...,x_N).
 %   M    is the the number of elements non zero probabilities in the sparse 
-%        matrix P.
-%   Hmax is the maximum entropy acording the CONF structure. Hmax=log2(prod(CONF.M))
+%        matrix P (This data is only a curiosity of input parameter P).
+%   Hmax [Optional] is the maximum entropy acording the CONF structure. 
+%        Hmax=log2(prod(CONF.M))
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/
