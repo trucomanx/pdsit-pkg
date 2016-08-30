@@ -22,7 +22,7 @@ function [H M varargout]=spentropy(P,varargin)
 %  for all 1<= i <=N.
 %  The function uses as input parameter a sparce matrix.
 %  The function uses the data returned by experimental joint probability function,
-%  see 'help exp_joint_prob'. 
+%  see 'help experimental_joint_prob'. 
 %
 %  H          = spentropy(P);
 %  [H M]      = spentropy(P);

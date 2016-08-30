@@ -1,7 +1,9 @@
 # A comment
 pdsit >> PDS Information Theory Package
+Sparce
+ experimental_joint_prob get_probability spentropy
 Basics
- exp_joint_prob  hb_func  hb_ifunc  scv2prob  vec2ind
+ hb_func  hb_ifunc    vec2ind
 CEO
  ber_sbceo hb_joint_sbceo hb_cond_sbceo
 

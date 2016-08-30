@@ -16,16 +16,16 @@
 %  along with this program; if not, please download it from
 %  <http://www.gnu.org/licenses>.
 
-function [PR IDL]=scv2prob(P,CONF,V)
+function [PR IDL]=get_probability(P,CONF,V)
 %  This function return the joint probability of a vector that represent a state 
 %  of a set of N signals x_i, for all 1<= i <=N. The probability will be search
 %  in a sparce matrix P.
 %  The function use the data returned by experimental joint probability function,
-%  see 'help exp_joint_prob'. 
+%  see 'help experimental_joint_prob'. 
 %
-%  PR       = scv2prob(P,CONF,V);
-%  [PR IDL] = scv2prob(P,CONF,V);
-%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3]); % PR=Pr(x_1=a_1, x_2=a_2, x_3=a_3) 
+%  PR       = get_probability(P,CONF,V);
+%  [PR IDL] = get_probability(P,CONF,V);
+%  [PR IDL] = get_probability(P,CONF,[a_1 a_2 a_3]); % PR=Pr(x_1=a_1, x_2=a_2, x_3=a_3) 
 %  
 %  Input:
 %   P    is a sparse matrix with the joint probabilities of the N signals x_i.
@@ -47,10 +47,10 @@ function [PR IDL]=scv2prob(P,CONF,V)
 %  EXAMPLE:
 %  Given 4 signals x_1, x_2, x_3 and x_4, with a sparse joint probability 
 %  matrix P and a structure CONF with the configuration data (obtained by 
-%  exp_joint_prob() function), the value PR of joint probability
+%  experimental_joint_prob() function), the value PR of joint probability
 %  Pr(x_1=a_1, x_2=a_2, x_3=a_3, x_4=a_4) can be obtained as:
 %  
-%  [PR IDL] = scv2prob(P,CONF,[a_1 a_2 a_3 a_4]); 
+%  [PR IDL] = get_probability(P,CONF,[a_1 a_2 a_3 a_4]); 
 %
 %  Additionally the function return the linear index equivalent to vector index
 %  [a_1 a_2 a_3 a_4].

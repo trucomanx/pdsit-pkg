@@ -17,7 +17,7 @@
 %  <http://www.gnu.org/licenses>.
 
 
-function [P CONF]= exp_joint_prob(X,T='lines',varargin)
+function [P CONF]= experimental_joint_prob(X,T='lines',varargin)
 %
 %  The function returns the experimental joint probability mass function, 
 %  between a set of N discretes random variables with
@@ -29,12 +29,12 @@ function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 %  signals x_i. If T='lines', then X= [X_1; X_2; X_3; ...; X_N]. By other side if 
 %  T='columns' then the samples of x_i are located in the columns of X matrix.
 % 
-%  P = exp_joint_prob(X);              % Joint probability between the lines of matrix X.
-%  P = exp_joint_prob(X,T);            % T can be equal to 'lines' or 'columns'.
-%  P = exp_joint_prob(X,T,CONF);       % Specify the minimum and the dimension of the signals.
-%  [P CONF] = exp_joint_prob(X);       % Additionally returns configuration data.
-%  [P CONF] = exp_joint_prob(X,T);     % T can be equal to 'lines' or 'columns'.
-%  [P CONF] = exp_joint_prob(X,T,CONF);% The CONF in the output is equal to CONF in the input.
+%  P = experimental_joint_prob(X);              % Joint probability between the lines of matrix X.
+%  P = experimental_joint_prob(X,T);            % T can be equal to 'lines' or 'columns'.
+%  P = experimental_joint_prob(X,T,CONF);       % Specify the minimum and the dimension of the signals.
+%  [P CONF] = experimental_joint_prob(X);       % Additionally returns configuration data.
+%  [P CONF] = experimental_joint_prob(X,T);     % T can be equal to 'lines' or 'columns'.
+%  [P CONF] = experimental_joint_prob(X,T,CONF);% The CONF in the output is equal to CONF in the input.
 %  
 %
 %  Input:
@@ -58,7 +58,7 @@ function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 %   P    is a sparse matrix with the joint probabilities of the N signals x_i.
 %        For get the probabilities without the position you can use:   nonzero(P)
 %        For get the probabilities to a specific n-tuple (x_1=a, x_2=b, x_3=c, ..)
-%        you can use the function  'scv2prob()', see the example bellow.
+%        you can use the function  'get_probability()', see the example bellow.
 %   CONF is a structure with the configuration data of sparse matrix P.
 %        CONF.MIN : It is a vector with the minimum values of each x_i signal.
 %                   The length of vector is N.
@@ -73,12 +73,12 @@ function [P CONF]= exp_joint_prob(X,T='lines',varargin)
 %  can be calculated as.
 %
 %  X = [ X_1; X_2; X_3];
-%  [P CONF]= exp_joint_prob(X);
+%  [P CONF]= experimental_joint_prob(X);
 %
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
 %  Pr(x_1=a,x_2=b,x_3=c) is equal to prob:
 % 
-%  prob=scv2prob(P,CONF,[a,b,c]);
+%  prob=get_probability(P,CONF,[a,b,c]);
 %
 %  For help, bug reports and feature suggestions, please visit:
 %  http://trucomanx.github.io/pdsit-pkg/

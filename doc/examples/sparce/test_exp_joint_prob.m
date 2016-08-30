@@ -9,13 +9,13 @@ X_3=[-1 -1  1  1 -1 -1  1  1  1  1 -1 -1  1  1 -1 -1];
 X = [ X_1; X_2; X_3]
 %CONF.MIN=[-10 -10 -10];
 %CONF.M=[20 20 20];
-[P CONF]= exp_joint_prob(X,'lines')
+[P CONF]= experimental_joint_prob(X,'lines')
 
 %  Thus, the sparse matrix P represent a 3D matrix. So that the probability of 
 %  Pr(x_1=a,x_2=b,x_3=c) is equal to prob:
 
 VEC=[7 2 1]
-[prob idl]=scv2prob(P,CONF,VEC);
+[prob idl]=get_probability(P,CONF,VEC);
 prob
 disp(sprintf('With linear index %d',idl));
 
