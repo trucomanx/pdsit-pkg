@@ -52,7 +52,33 @@ function Hc = hb_cond_sbceo(Ps,M)
 %  Code developer: Fernando Pujaico Rivera <fernando.pujaico.rivera@gmail.com>
 
 	if(~isvector(Ps))
+		error('Ps could be a value or vector.');
+	end
+
+	if(~isvector(M))
+		error('M could be a value or vector.');
+	end
+
+    if iscolumn(Ps)
+        Hc=zeros(length(Ps),length(M));
+        for II=1:length(M)
+            Hc(:,II) = hb_cond_sbceo_vec_val(Ps,M(II));
+        end
+    else
+        Hc=zeros(length(M),length(Ps));
+        for II=1:length(M)
+            Hc(II,:) = hb_cond_sbceo_vec_val(Ps,M(II));
+        end
+    end
+end
+
+function Hc = hb_cond_sbceo_vec_val(Ps,M)
+	if(~isvector(Ps))
 		error('Ps should be a vector or value');
+	end
+
+	if(~isnumeric(M))
+		error('M only can be a value.');
 	end
 
 	STEPS=length(Ps);
