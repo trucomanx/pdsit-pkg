@@ -28,7 +28,7 @@ when using it.
 
 ### Only in OCTAVE
 The next OCTAVE code install the PDSIT package 
-[pdsit-pkg.tar.gz](https://github.com/trucomanx/pdsit-pkg/tarball/master)
+[pdsit-pkg.tar.gz](https://github.com/trucomanx/pdsit-pkg/archive/master.tar.gz)
 in the directory ~/lib/octmat
 
 	pkg prefix ~/lib/octmat
@@ -38,7 +38,7 @@ The package is configured for be loaded by default.
 
 ### In MATLAB or OCTAVE
 For install the library in MATLAB, unzip the 
-[pdsit-pkg.zip](https://github.com/trucomanx/pdsit-pkg/zipball/master) bellow path
+[pdsit-pkg.zip](https://github.com/trucomanx/pdsit-pkg/archive/master.zip) bellow path
 
 	%USERPROFILE%\lib\octmat
 
