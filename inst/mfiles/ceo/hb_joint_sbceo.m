@@ -62,15 +62,22 @@ function Hj=hb_joint_sbceo(Ps,M)
 		error('M could be a value or vector.');
 	end
 
-    if iscolumn(Ps)
-        Hj=zeros(length(Ps),length(M));
+    if isscalar(Ps)
+        Hj=zeros(size(M));
         for II=1:length(M)
-            Hj(:,II) = hb_joint_sbceo_vec_val(Ps,M(II));
+            Hj(II) = hb_joint_sbceo_vec_val(Ps,M(II));
         end
     else
-        Hj=zeros(length(M),length(Ps));
-        for II=1:length(M)
-            Hj(II,:) = hb_joint_sbceo_vec_val(Ps,M(II));
+        if iscolumn(Ps)
+            Hj=zeros(length(Ps),length(M));
+            for II=1:length(M)
+                Hj(:,II) = hb_joint_sbceo_vec_val(Ps,M(II));
+            end
+        else
+            Hj=zeros(length(M),length(Ps));
+            for II=1:length(M)
+                Hj(II,:) = hb_joint_sbceo_vec_val(Ps,M(II));
+            end
         end
     end
 end

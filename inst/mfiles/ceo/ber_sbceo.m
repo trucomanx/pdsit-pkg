@@ -73,15 +73,22 @@ function BER = ber_sbceo(Ps,M)
 		error('M could be a value or vector.');
 	end
 
-    if iscolumn(Ps)
-        BER=zeros(length(Ps),length(M));
+    if isscalar(Ps)
+        BER=zeros(size(M));
         for II=1:length(M)
-            BER(:,II) = ber_sbceo_vec_val(Ps,M(II));
+            BER(II) = ber_sbceo_vec_val(Ps,M(II));
         end
     else
-        BER=zeros(length(M),length(Ps));
-        for II=1:length(M)
-            BER(II,:) = ber_sbceo_vec_val(Ps,M(II));
+        if iscolumn(Ps)
+            BER=zeros(length(Ps),length(M));
+            for II=1:length(M)
+                BER(:,II) = ber_sbceo_vec_val(Ps,M(II));
+            end
+        else
+            BER=zeros(length(M),length(Ps));
+            for II=1:length(M)
+                BER(II,:) = ber_sbceo_vec_val(Ps,M(II));
+            end
         end
     end
 end

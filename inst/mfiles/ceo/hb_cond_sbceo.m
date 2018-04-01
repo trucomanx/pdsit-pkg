@@ -59,15 +59,22 @@ function Hc = hb_cond_sbceo(Ps,M)
 		error('M could be a value or vector.');
 	end
 
-    if iscolumn(Ps)
-        Hc=zeros(length(Ps),length(M));
+    if isscalar(Ps)
+        Hc=zeros(size(M));
         for II=1:length(M)
-            Hc(:,II) = hb_cond_sbceo_vec_val(Ps,M(II));
+            Hc(II) = hb_cond_sbceo_vec_val(Ps,M(II));
         end
     else
-        Hc=zeros(length(M),length(Ps));
-        for II=1:length(M)
-            Hc(II,:) = hb_cond_sbceo_vec_val(Ps,M(II));
+        if iscolumn(Ps)
+            Hc=zeros(length(Ps),length(M));
+            for II=1:length(M)
+                Hc(:,II) = hb_cond_sbceo_vec_val(Ps,M(II));
+            end
+        else
+            Hc=zeros(length(M),length(Ps));
+            for II=1:length(M)
+                Hc(II,:) = hb_cond_sbceo_vec_val(Ps,M(II));
+            end
         end
     end
 end
